@@ -34,5 +34,5 @@ doc.md
 CHALLENGE.md
 doc_2.md
 
-# Data
-data/
+# Data (only root level, not app/data/)
+/data/
