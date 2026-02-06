@@ -1,4 +1,4 @@
-# askLio Procurement System
+# Smart Procurement System
 
 A web application for creating and managing procurement requests with AI-powered document extraction and commodity classification.
 
@@ -24,7 +24,7 @@ A web application for creating and managing procurement requests with AI-powered
 
 ```bash
 # Clone and enter directory
-cd askLio-challenge
+cd smart-procurement
 
 # Create virtual environment
 python -m venv venv
@@ -46,7 +46,7 @@ Open http://localhost:8000
 ## Project Structure
 
 ```
-askLio-challenge/
+smart-procurement/
 ├── app/                 # Backend modules
 │   ├── main.py          # FastAPI app
 │   ├── models.py        # Data models
