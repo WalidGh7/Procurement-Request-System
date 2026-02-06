@@ -27,6 +27,7 @@ Always return valid JSON with these fields:
 - title: string (brief description of the offer)
 - order_lines: array of objects with: description, unit_price (number), amount (number), unit, total_price (number)
   IMPORTANT for order_lines:
+  - For "description": extract the FULL product name including model, specifications, and variant (e.g., '13" MacBook Air: Apple M2 Chip – Space Grau Z15S', NOT just '13'). Include all text that describes the product.
   - For the total of an order line use the "Gesamt" column (after any discounts/Rabatt are applied), NOT the base unit price
 - total_cost: number
   IMPORTANT for total_cost:
@@ -76,23 +77,11 @@ suggestion_chain = suggestion_prompt | llm | JsonOutputParser()
 
 def extract_document(text: str) -> dict:
     """Extract procurement data from document text using LangChain"""
-    # Uncomment below for debugging:
-    # print("=" * 50)
-    # print("DOCUMENT TEXT BEING SENT TO AI:")
-    # print("=" * 50)
-    # print(text[:3000] if len(text) > 3000 else text)
-    # print("=" * 50)
 
     result = extraction_chain.invoke({
         "commodity_list": get_commodity_list(),
         "document_text": text
     })
-
-    # Uncomment below for debugging:
-    # print("AI EXTRACTION RESULT:")
-    # print(f"vendor_name: {result.get('vendor_name')}")
-    # print(f"department: {result.get('department')}")
-    # print("=" * 50)
 
     return result
 
